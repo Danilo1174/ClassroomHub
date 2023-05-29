@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ClassroomHub.Core.Entities
 {
-	public class Delivery
+	public class Delivery : EntityBase
     {
         public Guid ActivityId { get; set; }
         public Activity Activity { get; set; }
