@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ClassroomHub.Core\ClassroomHub.Core.csproj" />
+    <ProjectReference Include="..\ClassroomHub.DependencyInjetion\ClassroomHub.DependencyInjetion.csproj" />
     <ProjectReference Include="..\ClassroomHub.Services\ClassroomHub.Services.csproj" />
   </ItemGroup>
 
