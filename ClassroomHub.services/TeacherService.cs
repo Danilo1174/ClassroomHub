@@ -28,5 +28,15 @@ namespace ClassroomHub.Services
         {
 
         }
-    }
+
+		List<User> ITeacherService.GetAll()
+		{
+			throw new NotImplementedException();
+		}
+
+		User ITeacherService.GetById(Guid id)
+		{
+			throw new NotImplementedException();
+		}
+	}
 }
