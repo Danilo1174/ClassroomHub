@@ -13,7 +13,7 @@ namespace ClassroomHub.Data.Configuration
 		{
 			builder.ToTable("Modules");
 			builder.Property(x => x.Name).HasMaxLength(50).IsRequired();
-			builder.
+			
 			
 
 		}
