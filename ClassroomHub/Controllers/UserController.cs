@@ -1,8 +1,8 @@
-﻿using ClassroomHub.Core.Contracts;
-using ClassroomHub.Core.Entities;
+﻿using ClassroomHub.Core.Entities;
 using ClassroomHub.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
+using ClassroomHub.Core.Contracts.Services;
 
 namespace ClassroomHub.Web.Controllers
 {

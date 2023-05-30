@@ -1,4 +1,3 @@
-using ClassroomHub.Core.Contracts;
 using ClassroomHub.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -11,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ClassroomHub.Web.AutoMapper;
+using ClassroomHub.Core.Contracts.Services;
 
 namespace ClassroomHub
 {

@@ -12,5 +12,6 @@ namespace ClassroomHub.Core.Entities
         public Guid ClassId { get; set; }
         public Class Class { get; set; }
 
+
     }
 }

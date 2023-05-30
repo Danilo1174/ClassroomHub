@@ -8,14 +8,20 @@ namespace ClassroomHub.Data
 {
 	public class Context : DbContext
 	{
-		public DbSet<User> Users { get; set; }
-		public DbSet<Teacher> Teachers { get; set; }
+		
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=ClassroomHubDB;Trusted_Connection=True;");
 
 		}
-		
+
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+			modelBuilder.ApplyConfigurationsFromAssembly(typeof(Context).Assembly);
+
+		}
+
+
 
 	}
 }

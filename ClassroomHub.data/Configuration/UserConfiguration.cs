@@ -9,7 +9,10 @@ namespace ClassroomHub.Data.Configuration
 		public void Configure(EntityTypeBuilder<User> builder)
 		{
 			builder.ToTable("Users");
-			
+			builder.HasKey(x => x.Id);
+			builder.Property(x => x.Email).HasMaxLength(80).IsRequired();
+			builder.Property(x =>x.Password).HasColumnType("CHAR(20)").IsRequired();
+
 
 		}
 	}
