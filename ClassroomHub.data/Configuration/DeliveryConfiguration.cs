@@ -11,7 +11,10 @@ namespace ClassroomHub.Data.Configuration
 	{
 		public void Configure(EntityTypeBuilder<Delivery> builder)
 		{
-			
+			builder.ToTable("Delivery");
+			builder.HasKey(x => x.Id);
+			builder.Property(x => x.SubmissionDate).IsRequired();
+			builder.HasOne(x=> x.Grade).WithOne(x=> x.Delivery).HasForeignKey<Grade>(x=> x.DeliveryId);
 		}
 	}
 }

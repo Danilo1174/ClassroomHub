@@ -20,6 +20,7 @@ namespace ClassroomHub.Data.Configuration
 			builder.Property(x => x.Email).HasMaxLength(80).IsRequired();
 			builder.HasOne(x => x.User).WithOne(x => x.Teacher).HasForeignKey<Teacher>(x => x.UserId);
 			
+			
 		}
 	}
 }
