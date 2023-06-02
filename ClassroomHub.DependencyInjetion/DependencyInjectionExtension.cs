@@ -15,18 +15,18 @@ namespace ClassroomHub.DependencyInjetion
 		public static void AddServicesDependecy(this IServiceCollection services)
 		{
 			services.AddScoped<IUserService, UserService>();
-			services.AddScoped<IStudentService, StudentService>();
+			//services.AddScoped<IStudentService, StudentService>();
 			services.AddScoped<ITeacherService, TeacherService>();
 			services.AddScoped<IActivityService, ActivityService>();
-			services.AddScoped<ICourseService, CourseService>();
-			services.AddScoped<IDeliveryService, DeliveryService>();
-			services.AddScoped<IModuleService, ModuleService>();
+			//services.AddScoped<ICourseService, CourseService>();
+			//services.AddScoped<IDeliveryService, DeliveryService>();
+			//services.AddScoped<IModuleService, ModuleService>();
 
 		}
 		public static void AddRepositoryDependency(this IServiceCollection services)
 		{
-			services.AddScoped<IStudentRepository, StudentRepository>();
-			services.AddScoped<IClassRepository, ClassRepository>();
+			//services.AddScoped<IStudentRepository, StudentRepository>();
+			//services.AddScoped<IClassRepository, ClassRepository>();
 		}
 
 	}
