@@ -13,8 +13,8 @@ namespace ClassroomHub.Data.Configuration
 		{
 			builder.ToTable("Courses");
 			builder.HasKey(x => x.Id);
-			builder.Property(x => x.Name).IsRequired();
-			builder.Property(x => x.Description).IsRequired();	
+			builder.Property(x => x.Name).HasMaxLength(50).IsRequired();
+			builder.Property(x => x.Description).HasMaxLength(400).IsRequired();	
 			
 		}
 	}

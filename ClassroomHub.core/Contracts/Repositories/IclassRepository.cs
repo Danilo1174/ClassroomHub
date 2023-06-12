@@ -5,7 +5,8 @@ using System.Text;
 
 namespace ClassroomHub.Core.Contracts.Repositories
 {
-	public interface IStudentRepository : IBaseRepository<Student>
+	public interface IclassRepository : IBaseRepository<Class>
 	{
+
 	}
 }

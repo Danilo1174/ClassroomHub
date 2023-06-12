@@ -2,35 +2,54 @@
 using ClassroomHub.Core.Entities;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Linq;
 
 namespace ClassroomHub.Data.Repository
 {
 	public class BaseRepository<T> : IBaseRepository<T> where T : EntityBase
 	{
+		private readonly Context _context;
+		public BaseRepository(Context context)
+		{
+			this._context = context;
+
+		}
+
+
 		public void Add(T entity)
 		{
-			throw new NotImplementedException();
+			var dbset = this._context.Set<T>();
+			dbset.Add(entity);
+			this._context.SaveChanges();
 		}
 
 		public void Delete(Guid id)
 		{
-			throw new NotImplementedException();
+			var entity = this.GetById(id);
+			if (entity != null) 
+			{
+				this._context.Remove(entity);
+				this._context.SaveChanges();
+			}
 		}
 
 		public IEnumerable<T> GetAll()
 		{
-			throw new NotImplementedException();
+			return _context.Set<T>();
 		}
 
 		public T GetById(Guid id)
 		{
-			throw new NotImplementedException();
+			return this._context.Set<T>().FirstOrDefault(x => x.Id ==id);
 		}
 
 		public void Update(T entity)
 		{
-			throw new NotImplementedException();
+			this._context.Set<T>().Update(entity);
+			this._context.SaveChanges();
+
 		}
 	}
 }
