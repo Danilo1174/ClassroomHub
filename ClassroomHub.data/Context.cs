@@ -1,17 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ClassroomHub.Core.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace ClassroomHub.Data
 {
 	public class Context : DbContext
 	{
-		
-		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+
+		private readonly string _ConnectionString;
+        public Context(DbContextOptions options): base(options) 
 		{
-			optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=ClassroomHubDB;Trusted_Connection=True;");
+
+		}
+		public Context( string connectionsString, DbContextOptions options) : this(options)
+		{
+			_ConnectionString = connectionsString; 
+		}
+
+
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+		{
+			if (!string.IsNullOrEmpty(_ConnectionString))
+			{
+
+				optionsBuilder.UseSqlServer(_ConnectionString);
+			}
+
 
 		}
 

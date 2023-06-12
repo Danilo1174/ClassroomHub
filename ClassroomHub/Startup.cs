@@ -1,20 +1,17 @@
+using ClassroomHub.Core.Contracts.Services;
 using ClassroomHub.Services;
+using ClassroomHub.Web.AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ClassroomHub.Web.AutoMapper;
-using ClassroomHub.Core.Contracts.Services;
+using Microsoft.EntityFrameworkCore;
+using ClassroomHub.Data;
 
 namespace ClassroomHub
 {
-    public class Startup
+	public class Startup
     {
         public Startup(IConfiguration configuration)
         {
@@ -27,8 +24,9 @@ namespace ClassroomHub
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddAutoMapper(typeof(MapperProfile));
-        }
+			services.AddAutoMapper(typeof(MapperProfile));
+            services.AddDbContext<Context>(x => x.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=ClassroomHubDB;Trusted_Connection=True;"));			
+		}
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
