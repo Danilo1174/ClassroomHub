@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using ClassroomHub.Data;
+using ClassroomHub.DependencyInjetion;
 
 namespace ClassroomHub
 {
@@ -25,7 +26,9 @@ namespace ClassroomHub
         {
             services.AddControllersWithViews();
 			services.AddAutoMapper(typeof(MapperProfile));
-            services.AddDbContext<Context>(x => x.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=ClassroomHubDB;Trusted_Connection=True;"));			
+            services.AddDbContext<Context>(x => x.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=ClassroomHubDB;Trusted_Connection=True;"));
+            services.AddServicesDependency();
+            services.AddRepositoryDependency();
 		}
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
