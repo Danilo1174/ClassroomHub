@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ClassroomHub.Core.Contracts.Services
 {
-	internal interface IClassService
+	public interface IClassService
 	{
 	}
 }

@@ -9,6 +9,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using ClassroomHub.Data;
 using ClassroomHub.DependencyInjetion;
+using ClassroomHub.Web;
+using ClassroomHub.Service;
 
 namespace ClassroomHub
 {
@@ -59,9 +61,9 @@ namespace ClassroomHub
         public void InjectDependencies(IServiceCollection services)
         {
             services.AddScoped<IUserService, UserService>();   
-            //services.AddScoped<ITeacherService, TeacherService>();   
-            //services.AddScoped<IClassService, ClassService>();   
-            //services.AddScoped<IModuleService, ModuleService>();
+            services.AddScoped<ITeacherService, TeacherService>();
+			services.AddScoped<IClassService, ClassService>();
+			services.AddScoped<IModuleService, ModuleService>();
         }
     }
 }

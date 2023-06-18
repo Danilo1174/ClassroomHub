@@ -7,8 +7,8 @@ namespace ClassroomHub.Core.Contracts.Services
 {
 	public interface IModuleService
 	{
-		void Create(Module module);
-		List<Teacher> GetAll();
+	
+		
 
 	}
 }
