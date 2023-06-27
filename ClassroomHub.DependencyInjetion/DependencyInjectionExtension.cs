@@ -19,7 +19,7 @@ namespace ClassroomHub.DependencyInjetion
 			services.AddScoped<IStudentService, StudentService>();
 			services.AddScoped<ITeacherService, TeacherService>();
 			services.AddScoped<IActivityService, ActivityService>();
-			
+			services.AddScoped<IClassService, ClassService>();
 			services.AddScoped<ICourseService, CourseService>();
 			services.AddScoped<IDeliveryService, DeliveryService>();
 			services.AddScoped<IModuleService, ModuleService>();
@@ -30,6 +30,7 @@ namespace ClassroomHub.DependencyInjetion
 			services.AddScoped<IUserRepository, UserRepository>();
 			services.AddScoped<IStudentRepository, StudentRepository>();
 			services.AddScoped<IClassRepository, ClassRepository>();
+			services.AddScoped<ICourseRepository, CourseRepository>(); 
 		}
 
 	}

@@ -1,10 +1,12 @@
-﻿using System;
+﻿using System.ComponentModel;
 using System.Collections.Generic;
-using System.Text;
+using ClassroomHub.Core.Entities;
 
 namespace ClassroomHub.Core.Contracts.Services
 {
-	public interface IClassService
+    public interface IClassService
 	{
+        IEnumerable<Class> GetAll();
+		void Add(Class entity);
 	}
 }

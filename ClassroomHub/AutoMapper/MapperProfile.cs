@@ -12,6 +12,9 @@ namespace ClassroomHub.Web.AutoMapper
                 .ForMember(x => x.Email, src => src.MapFrom(x => x.UserName))
                 .ForMember(x => x.Password, src => src.MapFrom(x => x.Password))
                 .ReverseMap();
+            CreateMap<CourseViewModel, Course>().ReverseMap();
+
+            CreateMap<ClassViewModel, Class>().ReverseMap();     
             
         }
     }
