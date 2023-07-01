@@ -14,9 +14,7 @@ namespace ClassroomHub.Data.Repository
 		public BaseRepository(Context context)
 		{
 			this._context = context;
-
 		}
-
 
 		public void Add(T entity)
 		{

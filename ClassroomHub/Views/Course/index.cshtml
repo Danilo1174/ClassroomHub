@@ -5,7 +5,7 @@
 <br />
 <div class="row">
     <p>
-        <partial name="_create" model="new CourseViewModel()"></partial>
+       @Html.Partial("_newCourse", new CourseViewModel());
     </p>
 </div>
 <table class="table table-striped table-hover text-center">
