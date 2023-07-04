@@ -22,5 +22,26 @@ namespace ClassroomHub.Services
 		{
 			_classRepository.Add(entity);
 		}
-	}
+        public Class GetById(Guid id)
+        {
+            var classBd = _classRepository.GetById(id);
+            if (classBd is null)
+            {
+                return new Class();
+            }
+
+            return classBd;
+        }
+
+        public void Update(Class classe)
+        {
+            
+            _classRepository.Update(classe);
+        }
+
+        public void Delete(Guid id)
+        {
+            _classRepository.Delete(id);
+        }
+    }
 }

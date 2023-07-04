@@ -3,6 +3,7 @@ using ClassroomHub.Core.Contracts.Services;
 using ClassroomHub.Core.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ClassroomHub.Services
 {
@@ -17,9 +18,10 @@ namespace ClassroomHub.Services
 
         public void Add(Course course)
         {
-            _courseRepository.Add(course);
+            _courseRepository.Add(course);            
         }
 
+        //IEnumerable eh uma abstracao de colecoes como por exemplo List<> Array([]) Dicionarios
         public IEnumerable<Course> GetAll() => _courseRepository.GetAll();
 
         public Course GetById(Guid id)

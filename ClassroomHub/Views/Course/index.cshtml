@@ -2,7 +2,7 @@
 @model IEnumerable<CourseViewModel>
 
 <h1>Cursos</h1>
-<br />
+<br/>
 <div class="row">
     <p>
        @Html.Partial("_newCourse", new CourseViewModel());
@@ -30,9 +30,9 @@
                     <td>
                         <a asp-action="Edit" asp-route-id="@course.Id" style="text-decoration: none;"><i class="fa fa-edit ml-2"></i></a>
                         <a data-toggle="modal" data-target="#removeConfirmation"><i class="fa fa-trash ml-2"></i></a>
+                         <partial name="_delete" model="course.Id"></partial>
                     </td>
                 </tr>
-                <partial name="_delete" model="course.Id"></partial>
             }
         </tbody>
 

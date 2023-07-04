@@ -1,0 +1,51 @@
+﻿@using ClassroomHub.Web.ViewModels;
+@model ClassViewModel;
+
+<div class="row">
+    <div class="col-12">
+        <h1>Editar Turma</h1>
+    </div>
+</div>
+
+<form method="post" asp-controller="Class" asp-action="Edit">
+ 
+    <div class="row mt-3">
+       
+        <div class="col-12">
+           @Html.DisplayNameFor(x => x.CourseId)
+           @Html.DropDownListFor(x => x.CourseId,(SelectList)ViewBag.Courses,"Escolha o curso", new{@class="form-control mt-2"})
+           <span asp-validation-for="CourseId" class="text-center"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            @Html.DisplayNameFor(x => x.Name)
+            @Html.TextBoxFor(x => x.Name, new {Placeholder="Informe o nome da Turma", Attribute="width:50%", @class="form-control mt-2"})
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="col-6">
+            
+             <label asp-for="Start" class="label-control"></label>
+             <input asp-for="Start" class="form-control"></input>
+            <span asp-validation-for="Start" class="text-danger"></span>
+        </div>
+        <div class="col-6">
+            <label asp-for="End" class="label-control"></label>
+            <input asp-for="End" class="form-control"></input>
+            <span asp-validation-for="End" class="text-danger"></span>
+        </div>
+
+   
+    </div>
+    
+
+    <button type="button" class="btn btn-secondary mr-2"><a asp-action="Index" class="text-white">Cancelar</a></button>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+
+</form>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
