@@ -14,7 +14,7 @@
 }
 else
 {
-	<table class="table table-hover table-striped text-center">
+	<table class="table table-hover table-striped-columns text-center">
 		<thead>
 			<tr class="sucess">
 				<th>
@@ -46,10 +46,10 @@ else
 					<td>
 						@Html.DisplayFor(x => @class.End)
 					</td>
-					<td>
+					<tr>
 
-						@if (Model.Any())
-						{
+							@if (Model.Any())
+							{
 							@foreach (var classe in Model)
 							{
 
@@ -61,12 +61,12 @@ else
 
 							<partial name="_delete" model="classe.Id"></partial>
 							}
-						}
-						else
-						{
-						<p>Não há Turmas cadastradas</p>
-						}
-					</td>
+							}
+							else
+							{
+								<a>Não há Turmas cadastradas</a>
+							}
+					</tr>
 				</tr>
 
 

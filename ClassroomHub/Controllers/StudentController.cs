@@ -1,4 +1,7 @@
-﻿using ClassroomHub.Web.ViewModels;
+﻿using AutoMapper;
+using ClassroomHub.Core.Contracts.Services;
+using ClassroomHub.Core.Entities;
+using ClassroomHub.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -6,23 +9,17 @@ namespace ClassroomHub.Web.Controllers
 {
     public class StudentController : Controller
     {
-        private readonly List<StudentViewModel> studentViewModels = new List<StudentViewModel>()
+        private readonly IStudentService _studentService;
+        private readonly IMapper _mapper;
+        public StudentController(IStudentService studentService, IMapper mapper)
         {
-            new StudentViewModel()
-            {
-                Name = "João", 
-                Surname ="Emanuel", 
-                Email = "jaozindolol@gamail.com"
-            }, 
-            new StudentViewModel()
-            {
-                Name = "Danilo", 
-                Surname = "Alves", 
-                Email = "danilinreidossd@gmail.com"
-            }
-        };
+            _studentService = studentService;
+            _mapper = mapper;
+        }
         public IActionResult Index()
         {
+            var students = _studentService.GetAll();
+            var studentViewModels = _mapper.Map<List<StudentViewModel>>(students);
             return View(studentViewModels);
         }
 
@@ -34,14 +31,13 @@ namespace ClassroomHub.Web.Controllers
         [HttpPost]
         public IActionResult Create(StudentViewModel model)
         {
-            studentViewModels.Add(model);
+            _studentService.Add(_mapper.Map<Student>(model));
             return RedirectToAction("Index");
         }
 
         [HttpGet]
         public IActionResult GetById(int id) {
-            //GUID uuid
-            //87932D11-AF2A-4D23-8F8A-6CD7BF33DF61
+          
             return Ok();
         }
     }

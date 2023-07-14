@@ -10,7 +10,7 @@ namespace ClassroomHub.Web.ViewModels
 
         [Required]
         [DisplayName("Nome do Curso")]
-        [MaxLength(50)]
+        [MaxLength(30)]
         public string Name { get; set; }
 
         [DisplayName("Descríção")]

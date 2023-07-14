@@ -19,6 +19,10 @@ namespace ClassroomHub.Services
 		{
 			_studentRepository.Add(student);
 		}
+		public IEnumerable<Student> GetAll()
+		{
+			throw new System.NotImplementedException();
+		}
 		public void Update(Student student)
 		{
 			_studentRepository.Update(student);
@@ -27,13 +31,20 @@ namespace ClassroomHub.Services
 		{
 			return new Student();
 		}
-		public List<Student> GetAll()
-		{
-			return new List<Student>();
-		}
+		//public List<Student> GetAll() => new List<Student>();
 		public void Delete(Guid id)
 		{
 			
+		}
+
+		public void Add(Student student)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void Delete(Student student)
+		{
+			throw new NotImplementedException();
 		}
 	}
 }
