@@ -19,27 +19,19 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class=" nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="" id="user-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true">
-						usuarios
+					<a class="nav-link dropdown-toggle navbar-brand" href="" id="user-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true">
+						Usuarios
 					</a>
-					
-					
-					<div class="  navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-						<ul class="navbar-nav flex-grow-1">
-							<li class="nav-item">
-								<a class="nav-link text-dark" asp-area="" asp-controller="Activity" asp-action="Index">Atividades</a>
-							</li>
-							<li>
-								<a class="nav-link text-dark" asp-controller="Class" asp-action="Index">Turmas</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link text-dark" asp-controller="Course" asp-action="Index">Cursos</a>
-							</li>
-						</ul>
-					</div>
 
-
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="Teacher/Index">Professor</a></li>
+						<li><a class="dropdown-item" href="Student/Index">Aluno</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li><a class="dropdown-item" href="#">Administrador</a></li>
+					</ul>
 				</div>
+
+				
 
 			</div>
 		</nav>

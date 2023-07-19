@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ClassroomHub.Core.Entities
 {
@@ -11,7 +12,8 @@ namespace ClassroomHub.Core.Entities
         public User User { get; set; }
         public Guid ClassId { get; set; }
         public Class Class { get; set; }
+		public List<Activity> Activities { get; set; }
 
 
-    }
+	}
 }

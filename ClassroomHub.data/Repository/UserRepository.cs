@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ClassroomHub.Data.Repository
+namespace ClassroomHub.Data.Repositories
 {
 	public class UserRepository : BaseRepository<User>, IUserRepository
 	{

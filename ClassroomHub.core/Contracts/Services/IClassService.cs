@@ -7,11 +7,11 @@ namespace ClassroomHub.Core.Contracts.Services
 {
     public interface IClassService
 	{
-        IEnumerable<Class> GetAll();
+		IEnumerable<Class> GetAll();
+		IEnumerable<Class> GetAllByCourseId(Guid courseId);
+		Class GetById(Guid id);
 		void Add(Class entity);
-        void Update(Class classe);
-        Class GetById(Guid id);
-
-        void Delete(Guid id);
-    }
+		void Update(Class entity);
+		void Delete(Guid id);
+	}
 }

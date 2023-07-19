@@ -27,14 +27,16 @@ namespace ClassroomHub.Services
         {
             return new User();
         }
-        public List<User> GetAll()
-        {
-            return new List<User>();    
-        }
+       
         public void Delete(Guid id)
         {
             _userRepository.Delete(id);
 
         }
-    }
+
+		public IEnumerable<User> GetAll()
+		{
+			return _userRepository.GetAll();
+		}
+	}
 }

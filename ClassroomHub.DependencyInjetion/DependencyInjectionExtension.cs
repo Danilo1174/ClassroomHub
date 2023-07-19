@@ -6,7 +6,7 @@ using ClassroomHub.Core.Contracts.Repositories;
 using ClassroomHub.Core.Contracts.Services;
 using ClassroomHub.Services;
 using Microsoft.Extensions.DependencyInjection;
-using ClassroomHub.Data.Repository;
+using ClassroomHub.Data.Repositories;
 
 
 namespace ClassroomHub.DependencyInjetion
@@ -30,7 +30,8 @@ namespace ClassroomHub.DependencyInjetion
 			services.AddScoped<IUserRepository, UserRepository>();
 			services.AddScoped<IStudentRepository, StudentRepository>();
 			services.AddScoped<IClassRepository, ClassRepository>();
-			services.AddScoped<ICourseRepository, CourseRepository>(); 
+			services.AddScoped<ICourseRepository, CourseRepository>();
+			services.AddScoped<ITeacherRepository, TeacherRepository>();
 		}
 
 	}

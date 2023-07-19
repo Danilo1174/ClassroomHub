@@ -7,6 +7,6 @@ namespace ClassroomHub.Core.Contracts.Repositories
 {
 	public interface IClassRepository : IBaseRepository<Class>
 	{
-
+		IEnumerable<Class> GetClassesByCourseId(Guid courseId);
 	}
 }

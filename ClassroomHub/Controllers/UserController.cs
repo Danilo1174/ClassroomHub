@@ -2,39 +2,53 @@
 using ClassroomHub.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
+using System.Collections.Generic;
 using ClassroomHub.Core.Contracts.Services;
 using System;
 
 namespace ClassroomHub.Web.Controllers
 {
-    public class UserController : Controller
-    {
-        private readonly IUserService _userService;
-        private readonly IMapper _mapper;
+	public class UserController : Controller
+	{
+		private readonly IUserService _userService;
+		private readonly IMapper _mapper;
 
-        private User usuario = new User()
-        {
-            Email = "danilomengo12@gmail.com",
-            Password = "teste123"
-        } ;
-        public UserController(IUserService userService, IMapper mapper)
-        {
-            _mapper = mapper;
-            _userService = userService;
-        }
-        public IActionResult Index()
-        {
-            _userService.GetById(new Guid("1481b2af-c2ff-4c84-fcd4-08db6b9c1736"));
+		public UserController(IUserService userService, IMapper mapper)
+		{
+			_mapper = mapper;
+			_userService = userService;
+		}
+		public IActionResult Index()
+		{
+			var users = _userService.GetAll();
+			var userViewModel = _mapper.Map<List<UserViewModel>>(users);
+			return View(userViewModel);
+		}
 
-            
-            return View();
-        }
+		public IActionResult Create(UserViewModel model)
+		{
+			var user = _mapper.Map<User>(model);
+			_userService.Create(user);
 
-        public IActionResult Create(UserViewModel model)
-        {
-            var user = _mapper.Map<User>(model);
-            _userService.Create(user);
-            return Ok();
-        }
-    }
+			if (model.IsTeacher)
+			{
+				return RedirectToAction(nameof(Index), "Teacher");
+			}
+			return RedirectToAction(nameof(Index), "Student");
+		}
+
+		[HttpGet]
+		public IActionResult Update(Guid id)
+		{
+			var model = _mapper.Map<UserViewModel>(_userService.GetById(id));
+			return View(model);
+		}
+
+		[HttpPost]
+		public IActionResult Update(UserViewModel model)
+		{
+			_userService.Update(_mapper.Map<User>(model));
+			return RedirectToAction(nameof(Index));
+		}
+	}
 }

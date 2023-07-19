@@ -7,7 +7,7 @@ using System.Text;
 
 namespace ClassroomHub.Services
 {
-	public class StudentService:IStudentService
+	public class StudentService : IStudentService
 	{
 		private readonly IStudentRepository _studentRepository;
 
@@ -15,14 +15,16 @@ namespace ClassroomHub.Services
 		{
 			_studentRepository = studentRepository;
 		}
-		public void Create(Student student)
+
+		public void Add(Student student)
 		{
 			_studentRepository.Add(student);
 		}
-		public IEnumerable<Student> GetAll()
+        public void Create(Student student)
 		{
-			throw new System.NotImplementedException();
+			
 		}
+	
 		public void Update(Student student)
 		{
 			_studentRepository.Update(student);
@@ -31,20 +33,20 @@ namespace ClassroomHub.Services
 		{
 			return new Student();
 		}
-		//public List<Student> GetAll() => new List<Student>();
+		
+
+
 		public void Delete(Guid id)
 		{
-			
-		}
+            throw new NotImplementedException();
+        }
 
-		public void Add(Student student)
-		{
-			throw new NotImplementedException();
-		}
+				
+		public IEnumerable<Student> GetAll() => _studentRepository.GetAll();
 
-		public void Delete(Student student)
-		{
-			throw new NotImplementedException();
-		}
-	}
+        public void Delete(Student student)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

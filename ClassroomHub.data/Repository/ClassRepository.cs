@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ClassroomHub.Data.Repository
+namespace ClassroomHub.Data.Repositories
 {
 	public class ClassRepository : BaseRepository<Class>, IClassRepository
 	{

@@ -1,43 +1,22 @@
-﻿using ClassroomHub.Core.Contracts;
-using ClassroomHub.Core.Contracts.Services;
+﻿using ClassroomHub.Core.Contracts.Services;
+using ClassroomHub.Core.Contracts.Repositories;
 using ClassroomHub.Core.Entities;
-using System;
 using System.Collections.Generic;
 
 namespace ClassroomHub.Services
 {
-    public class TeacherService : ITeacherService
-    {
-        public void Create(Teacher teacher) 
-        { 
+	public class TeacherService : ITeacherService
+	{
+		private readonly ITeacherRepository _teacherRepository;
 
-        }
-        public void Update(Teacher teacher)
-        {
-
-        }
-
-        public Teacher GetById(Guid id)
-        {
-            return new Teacher();
-        }
-        public List<Teacher> GetAll()
-        {
-            return new List<Teacher>();    
-        }
-        public void Delete(Guid id)
-        {
-
-        }
-
-		List<User> ITeacherService.GetAll()
+		public TeacherService(ITeacherRepository teacherRepository)
 		{
-			throw new NotImplementedException();
+			_teacherRepository = teacherRepository;
 		}
 
-		User ITeacherService.GetById(Guid id)
+		public IEnumerable<Teacher> GetAll()
 		{
-			throw new NotImplementedException();
+			return _teacherRepository.GetFullTeachers();
 		}
 	}
 }
