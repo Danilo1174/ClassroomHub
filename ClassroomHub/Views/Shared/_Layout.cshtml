@@ -23,9 +23,11 @@
 						Usuarios
 					</a>
 
-					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="Teacher/Index">Professor</a></li>
-						<li><a class="dropdown-item" href="Student/Index">Aluno</a></li>
+					<ul class="dropdown-menu" aria-labelledby="usersDropdown">
+						<li><a class="dropdown-item" asp-controller="User" asp-action="Index">Usuários</a></li>
+						<li><a class="dropdown-item" asp-controller="Teacher" asp-action="Index">Professor</a></li>
+						<li><a class="dropdown-item" asp-controller="Student" asp-action="Index">Aluno</a></li>
+
 						<li><hr class="dropdown-divider"></li>
 						<li><a class="dropdown-item" href="#">Administrador</a></li>
 					</ul>
@@ -35,6 +37,7 @@
 
 			</div>
 		</nav>
+	</header>
 	</header>
 	<div class="container">
 		<main role="main" class="pb-3">

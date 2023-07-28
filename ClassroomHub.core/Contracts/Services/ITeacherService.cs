@@ -8,6 +8,7 @@ namespace ClassroomHub.Core.Contracts.Services
     {
 
         IEnumerable<Teacher> GetAll();
-    
-    }
+		void Create(Teacher teacher);
+
+	}
 }

@@ -1,14 +1,13 @@
-﻿using ClassroomHub.Core.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using ClassroomHub.Core.Entities;
 
 namespace ClassroomHub.Core.Contracts.Services
 {
 	public interface IModuleService
 	{
-	
-		
-
+		IEnumerable<Module> GetAll();
+		void Add(Module module);
+		Module GetById(Guid id);
 	}
 }

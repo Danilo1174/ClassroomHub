@@ -3,6 +3,10 @@
 @model IEnumerable<TeacherViewModel>
 
 <h1>Professores</h1>
+<partial name="_create" model="new TeacherViewModel()" />
+<br />
+<br />
+
 
 <table class="table table-hover table-striped">
     <thead>
@@ -17,7 +21,7 @@
                 @Html.DisplayNameFor(x => x.Email)
             </th>
             <th>
-                @Html.DisplayNameFor(x => x.Especializacao)
+                @Html.DisplayNameFor(x => x.Especialization)
             </th>
         </tr>
     </thead>
@@ -47,7 +51,7 @@
                         @Html.DisplayFor(x => teacher.Email)
                     </td>
                     <td>
-                        @Html.DisplayFor(x => teacher.Especializacao)
+                        @Html.DisplayFor(x => teacher.Especialization)
                     </td>
                 </tr>
             }
