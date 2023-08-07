@@ -5,6 +5,7 @@ using AutoMapper;
 using System.Collections.Generic;
 using ClassroomHub.Core.Contracts.Services;
 using System;
+using ClassroomHub.Services;
 
 namespace ClassroomHub.Web.Controllers
 {
@@ -48,6 +49,11 @@ namespace ClassroomHub.Web.Controllers
 		public IActionResult Update(UserViewModel model)
 		{
 			_userService.Update(_mapper.Map<User>(model));
+			return RedirectToAction(nameof(Index));
+		}
+		public IActionResult Delete(Guid id)
+		{
+			_userService.Delete(id);
 			return RedirectToAction(nameof(Index));
 		}
 	}

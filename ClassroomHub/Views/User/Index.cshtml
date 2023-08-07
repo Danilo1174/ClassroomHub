@@ -30,6 +30,12 @@
                 <td>
                     <a asp-action="Update" asp-route-id="@user.Id"><i class="fa fa-edit"></i></a>
                 </td>
+                <td>
+                    
+                    <a data-toggle="modal" data-target="#removeConfirmation"><i class="fa fa-trash ml-2"></i></a>
+                    <partial name="Delete" model="user.Id"></partial>
+                </td>
+                
             </tr>
         }
     </tbody>

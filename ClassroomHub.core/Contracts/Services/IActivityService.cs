@@ -1,15 +1,13 @@
-﻿using ClassroomHub.Core.Entities;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System;
+using ClassroomHub.Core.Entities;
 
 namespace ClassroomHub.Core.Contracts.Services
 {
     public interface IActivityService
     {
-        void Create(Activity activity);
-        List<Activity> GetAll();
+        IEnumerable<Activity> GetAllWithModules();
         Activity GetById(Guid id);
-        void Update(Activity activity);
-        void Delete(Guid id);
+        void Add(Activity activity);
     }
 }

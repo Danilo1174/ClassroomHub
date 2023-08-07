@@ -1,33 +1,32 @@
-﻿using ClassroomHub.Core.Contracts;
-using ClassroomHub.Core.Contracts.Services;
+﻿using ClassroomHub.Core.Contracts.Services;
+using ClassroomHub.Core.Contracts.Repositories;
+using System.Collections.Generic;
 using ClassroomHub.Core.Entities;
 using System;
-using System.Collections.Generic;
 
 namespace ClassroomHub.Services
 {
     public class ActivityService : IActivityService
-	{
-        public void Create(Activity activity) 
-        { 
+    {
+        private readonly IActivityRepository _activityRepository;
 
-        }
-        public void Update(Activity activity)
+        public ActivityService(IActivityRepository activityRepository)
         {
-
+            _activityRepository = activityRepository;
         }
 
-        public Activity GetById(Guid id)
+        public void Add(Activity activity)
         {
-            return new Activity();
+            _activityRepository.Add(activity);
         }
-        public List<Activity> GetAll()
-        {
-            return new List<Activity>();    
-        }
-        public void Delete(Guid id)
-        {
 
+        public IEnumerable<Activity> GetAllWithModules()
+        {
+            return _activityRepository.GetAllWithModules();
         }
+
+        public Activity GetById(Guid id) =>
+            _activityRepository.GetById(id);
+
     }
 }

@@ -7,8 +7,8 @@ namespace ClassroomHub.Web.AutoMapper
     public class MapperProfile : Profile
     {
         public MapperProfile()
-        { 
-            CreateMap<UserViewModel,User>()
+        {
+            CreateMap<UserViewModel, User>()
                 .ForMember(x => x.Email, src => src.MapFrom(x => x.UserName))
                 .ForMember(x => x.Password, src => src.MapFrom(x => x.Password))
                 .ReverseMap();
@@ -16,17 +16,17 @@ namespace ClassroomHub.Web.AutoMapper
 
             CreateMap<ClassViewModel, Class>().ReverseMap();
 
-			CreateMap<StudentViewModel, Student>();
+            CreateMap<StudentViewModel, Student>();
 
-			CreateMap<Student, StudentViewModel>().ForMember(x => x.Email, src => src.MapFrom(x => x.User.Email));
+            CreateMap<Student, StudentViewModel>().ForMember(x => x.Email, src => src.MapFrom(x => x.User.Email));
 
-			CreateMap<TeacherViewModel, Teacher>();
+            CreateMap<TeacherViewModel, Teacher>();
 
-			CreateMap<Teacher, TeacherViewModel>().ForMember(x => x.Email, src => src.MapFrom(x => x.User.Email));
+            CreateMap<Teacher, TeacherViewModel>().ForMember(x => x.Email, src => src.MapFrom(x => x.User.Email));
 
             CreateMap<ModuleViewModel, Module>();
 
             CreateMap<Module, ModuleViewModel>().ForMember(x => x.TeacherName, src => src.MapFrom(x => x.Name));
-		}
-	}
+        }
+    }
 }

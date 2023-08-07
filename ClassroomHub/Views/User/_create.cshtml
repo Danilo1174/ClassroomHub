@@ -1,19 +1,19 @@
 ﻿@model ClassroomHub.Web.ViewModels.UserViewModel
 
 <form method="post" asp-controller="User" asp-action="Create">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createUser">
-        <i class="fa fa-plus" aria-hidden="true"></i>
+    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#createUser">
+        Criar Novo
     </button>
     <div class="modal fade" id="createUser" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header bg-success">
-                    <h5 class="modal-title text-white">Cadastrar Usuário</h5>
+            <div class="modal-content bg-info">
+                <div class="modal-header bg-info text-black-50">
+                    <h5 class="modal-title text-black">Cadastrar Usuário</h5>
                     <button type="button" class="close text-white" data-dismiss="modal" aria-label="Fechar">
                         <span aria-hidden="true"></span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body bg-info">
                     <div class="form-group">
                         @Html.DisplayNameFor(x => x.UserName)
                         @Html.TextBoxFor(x => x.UserName, new {@class="form-control"})

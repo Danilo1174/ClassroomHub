@@ -1,22 +1,23 @@
 ﻿@using System.Collections.Generic
 @using ClassroomHub.Web.ViewModels
-
 @model IEnumerable<ClassViewModel>
 
-<h1> Turmas</h1>
-<partial name="_create" model="new ClassViewModel()"></partial>
+
+<h1>Turmas</h1>
+<partial name="_create" model="new ClassViewModel()"></partial> 
+<partial name="SearchClass"></partial>
+
 @if (!Model.Any())
 {
 	<div class="text-center">
-		<span> Nao ha turmas cadastradas</span>
-
+		<span>Não há turmas cadastradas</span>
 	</div>
 }
 else
 {
-	<table class="table table-hover table-striped-columns text-center">
+	<table class="table table-hover table-striped text-center">
 		<thead>
-			<tr class="sucess">
+			<tr class="success">
 				<th>
 					@Html.DisplayNameFor(x => x.Name)
 				</th>
@@ -26,58 +27,39 @@ else
 				<th>
 					@Html.DisplayNameFor(x => x.End)
 				</th>
-				<th>
-
-				</th>
-
-
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
-			@foreach (var @class in Model)
+			@for (int i = 0; i < Model.Count(); i++)
 			{
+				var _class = Model.ToList()[i];
 				<tr>
 					<td>
-						@Html.DisplayFor(x => @class.Name)
+						@Html.DisplayFor( x => _class.Name)
 					</td>
 					<td>
-						@Html.DisplayFor(x => @class.Start)
+						@Html.DisplayFor(x => _class.Start)
 					</td>
 					<td>
-						@Html.DisplayFor(x => @class.End)
+						@Html.DisplayFor(x => _class.End)
 					</td>
-					<tr>
-
-							@if (Model.Any())
-							{
-							@foreach (var classe in Model)
-							{
-
-
-							<td>
-								<a asp-action="Edit" asp-route-id="@classe.Id" style="text-decoration: none;"><i class="fa fa-edit ml-2"></i></a>
-								<a data-toggle="modal" data-target="#removeConfirmation"><i class="fa fa-trash ml-2"></i></a>
-							</td>
-
-							<partial name="_delete" model="classe.Id"></partial>
-							}
-							}
-							else
-							{
-								<a>Não há Turmas cadastradas</a>
-							}
-					</tr>
+					<td>
+						<a asp-action="Update" asp-route-id="@_class.Id"><i class="fa fa-edit" style="font-size:x-large"></i></a>
+						@{
+							Tuple<string, Guid> param = new Tuple<string, Guid>("remove" + i, _class.Id);
+						}
+						<a data-toggle="modal" data-target="#@param.Item1"><i class="fa fa-trash ml-2"></i></a>
+						<partial name="_delete" model="@param"></partial>
+					</td>
 				</tr>
-
-
 			}
-
 		</tbody>
 	</table>
-	@section Scripts{
-	@{
-			await Html.RenderPartialAsync("_ValidationScriptsPartial");
-		}
-	}
 }
 
+@section Scripts{
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+	}
