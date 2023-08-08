@@ -25,7 +25,12 @@ namespace ClassroomHub.Services
             return _activityRepository.GetAllWithModules();
         }
 
-        public Activity GetById(Guid id) =>
+		public IEnumerable<Activity> GetAllWithModules(Guid teacherId)
+		{
+			throw new NotImplementedException();
+		}
+
+		public Activity GetById(Guid id) =>
             _activityRepository.GetById(id);
 
     }

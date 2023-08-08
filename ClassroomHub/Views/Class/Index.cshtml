@@ -5,7 +5,8 @@
 
 <h1>Turmas</h1>
 <partial name="_create" model="new ClassViewModel()"></partial> 
-<partial name="SearchClass"></partial>
+<partial name="SeachClass"></partial>
+
 
 @if (!Model.Any())
 {
@@ -52,6 +53,7 @@ else
 						<a data-toggle="modal" data-target="#@param.Item1"><i class="fa fa-trash ml-2"></i></a>
 						<partial name="_delete" model="@param"></partial>
 					</td>
+					
 				</tr>
 			}
 		</tbody>

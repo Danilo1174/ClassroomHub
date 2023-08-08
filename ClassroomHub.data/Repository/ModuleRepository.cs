@@ -12,7 +12,12 @@ namespace ClassroomHub.Data.Repositories
         {
         }
 
-        public IEnumerable<Module> GetModulesByTeacherId(Guid id)
+		public IEnumerable<Module> GetDeliveriesByTeacherId(Guid teacherId)
+		{
+			throw new NotImplementedException();
+		}
+
+		public IEnumerable<Module> GetModulesByTeacherId(Guid id)
         {
             return this.Get().Where(x => x.TeacherId == id);
         }

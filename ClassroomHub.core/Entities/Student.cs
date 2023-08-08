@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ClassroomHub.Core.Entities
 {
-	public class Student : EntityBase
+    public class Student : EntityBase
     {
         public string Name { get; set; }
         public string Surname { get; set; }
@@ -12,8 +12,6 @@ namespace ClassroomHub.Core.Entities
         public User User { get; set; }
         public Guid ClassId { get; set; }
         public Class Class { get; set; }
-		public List<Activity> Activities { get; set; }
-
-
-	}
+        public IEnumerable<Delivery> Deliveries { get; set; }
+    }
 }

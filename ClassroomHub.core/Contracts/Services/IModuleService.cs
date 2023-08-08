@@ -11,5 +11,6 @@ namespace ClassroomHub.Core.Contracts.Services
         Module GetById(Guid id);
 
         IEnumerable<Module> GetModulesByTeacherId(Guid id);
-    }
+		object GetDeliveredActivitiesByTeacherId(Guid teacherId);
+	}
 }

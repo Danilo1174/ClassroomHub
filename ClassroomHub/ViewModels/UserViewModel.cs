@@ -7,7 +7,7 @@ namespace ClassroomHub.Web.ViewModels
     public class UserViewModel
     {
         public Guid Id { get; set; }
-        [Display(Name = "Nome de usuário")]
+        [Display(Name = "Email")]
         [Required(AllowEmptyStrings = false,ErrorMessage ="Nome de usuário obrigatório")]
         public string UserName { get; set; }
 
