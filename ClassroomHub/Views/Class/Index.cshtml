@@ -46,7 +46,7 @@ else
 						@Html.DisplayFor(x => _class.End)
 					</td>
 					<td>
-						<a asp-action="Update" asp-route-id="@_class.Id"><i class="fa fa-edit" style="font-size:x-large"></i></a>
+						<a asp-action="Update" asp-route-id="@_class.Id"><i class="fa fa-edit ml-2" style="font-size:x-large"></i></a>
 						@{
 							Tuple<string, Guid> param = new Tuple<string, Guid>("remove" + i, _class.Id);
 						}
