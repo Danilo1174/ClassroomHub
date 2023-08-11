@@ -8,19 +8,19 @@
         var module = Model.ToList()[i];
         var idHeader = "heading" + i;
         var idCollapse = "colapse" + i;
-        <div class="card">
-            <div class="card-header" id="@idHeader">
+        <div class="card bg-info">
+            <div class="card-header bg-dark" id="@idHeader">
                 @{
                     var target = "#" + idCollapse;
                 }
                 <h5>
-                    <button class="btn btn-link" data-toggle="collapse" data-target="@target" aria-expanded="false" aria-controls="@idCollapse">
+                    <button class="btn btn-link text-white-50" data-toggle="collapse" data-target="@target" aria-expanded="false" aria-controls="@idCollapse">
                         @module.ModuleName
                     </button>
                 </h5>
             </div>
             <div id="@idCollapse" class="collapse show" aria-labelledby="@idHeader" data-parent="#accordion">
-                <div class="card-body">
+                <div class="card-body ">
                     <table class="table table-hover table-striped">
                         <thead>
                             @{

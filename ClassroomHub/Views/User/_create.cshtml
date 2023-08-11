@@ -7,13 +7,13 @@
     <div class="modal fade" id="createUser" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content bg-info">
-                <div class="modal-header bg-info text-black-50">
+                <div class="modal-header bg-info text-white">
                     <h5 class="modal-title text-black">Cadastrar Usuário</h5>
                     <button type="button" class="close text-white" data-dismiss="modal" aria-label="Fechar">
                         <span aria-hidden="true"></span>
                     </button>
                 </div>
-                <div class="modal-body bg-info">
+                <div class="modal-body bg-dark">
                     <div class="form-group">
                         @Html.DisplayNameFor(x => x.UserName)
                         @Html.TextBoxFor(x => x.UserName, new {@class="form-control"})
@@ -25,9 +25,9 @@
                         <span>Aluno</span>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Fechar</button>
-                    <button type="submit" class="btn btn-primary">Salvar</button>
+                <div class="modal-footer bg-dark">
+                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-outline-primary">Salvar</button>
                 </div>
             </div>
         </div>

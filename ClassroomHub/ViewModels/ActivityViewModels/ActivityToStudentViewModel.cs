@@ -18,7 +18,10 @@ namespace ClassroomHub.Web.ViewModels.ActivityViewModels
 		[DisplayName("Data de entrega")]
 		public DateTime DueDate { get; set; }
 		public int ActivityScore { get; set; }
-		public string TeacherName { get; set; }
+        [Required]
+        [DisplayName("Notas")]
+        
+        public string TeacherName { get; set; }
 		public Guid TeacherId { get; set; }
 		public string ModuleName { get; set; }
 		public Guid ModuleId { get; set; }

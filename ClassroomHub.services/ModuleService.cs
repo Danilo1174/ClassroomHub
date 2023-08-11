@@ -11,7 +11,7 @@ namespace ClassroomHub.Services
 	{
 		private readonly IModuleRepository _moduleRepository;
 
-		public ModuleService(IModuleRepository moduleRepository, ITeacherService teacherService)
+		public ModuleService(IModuleRepository moduleRepository)
 		{
 			_moduleRepository = moduleRepository;
 		}
@@ -68,9 +68,6 @@ namespace ClassroomHub.Services
 			return modules;
 		}
 
-		object IModuleService.GetDeliveredActivitiesByTeacherId(Guid teacherId)
-		{
-			throw new NotImplementedException();
-		}
+		
 	}
 }

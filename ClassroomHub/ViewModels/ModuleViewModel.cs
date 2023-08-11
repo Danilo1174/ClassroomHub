@@ -21,12 +21,12 @@ namespace ClassroomHub.Web.ViewModels
 
         [DisplayName("Início")]
         [Required]
-        [DisplayFormat(DataFormatString = "0:d")]
+        
         public DateTime Start { get; set; }
 
         [DisplayName("Encerramento")]
         [Required]
-        [DisplayFormat(DataFormatString = "0:d")]
+       
         public DateTime End { get; set; }
 
         [Required(ErrorMessage = "Selecione o professor")]
