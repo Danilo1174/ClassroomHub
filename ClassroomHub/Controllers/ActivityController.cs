@@ -48,7 +48,7 @@ namespace ClassroomHub.Web.Controllers
 		{
 			var modules = _moduleService.GetModulesByTeacherId(teacherId);
 			var activities = _mapper.Map<List<ActivityViewModel>>(_activityService.GetAllWithModules(teacherId));
-			ViewBag.Modules = new SelectList(modules, "Id", "Nome");
+			ViewBag.Modules = new SelectList(modules, "Id", "Name");
 			return View(activities);
 		}
 

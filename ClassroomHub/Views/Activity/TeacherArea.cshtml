@@ -8,11 +8,6 @@
 	<button type="button" class="btn btn-dark mb-2" data-toggle="modal" data-target="#createActivity">
 		Criar Novo
 	</button>
-	@if (Model.Any(x => x.Deliveries.Any()))
-	{
-		
-		<a type="button" class="btn btn-primary ml-2 " asp-action="GetDeliveries" asp-route-teacherId="@Model.First().TeacherId">Atividades Entregues</a>
-	}
 
 </div>
 
@@ -36,22 +31,26 @@
 		</tr>
 	</thead>
 	<tbody>
-		@foreach (var activity in Model)
+		@if (Model.Any())
 		{
-			<tr>
-				<td>
-					@Html.DisplayFor( x => activity.Title)
-				</td>
-				<td>
-					@Html.DisplayFor(x => activity.ModuleName)
-				</td>
-				<td>
-					@Html.DisplayFor(x => activity.DueDate)
-				</td>
-				<td>
-					@Html.DisplayFor(x => activity.ActivityScore)
-				</td>
-			</tr>
+
+			@foreach (var activity in Model)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor( x => activity.Title)
+					</td>
+					<td>
+						@Html.DisplayFor(x => activity.ModuleName)
+					</td>
+					<td>
+						@Html.DisplayFor(x => activity.DueDate)
+					</td>
+					<td>
+						@Html.DisplayFor(x => activity.ActivityScore)
+					</td>
+				</tr>
+			}
 		}
 	</tbody>
 </table>

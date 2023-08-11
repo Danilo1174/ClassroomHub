@@ -23,6 +23,8 @@ namespace ClassroomHub.Services
 
         public IEnumerable<Activity> GetAllWithModules(Guid teacherId)
         {
+            var activites = _activityRepository.GetAllWithModules();
+            var fullActivites =activites.Where(x => x.Id == teacherId);
             return _activityRepository.GetAllWithModules().Where(x => x.Module.TeacherId == teacherId);
         }
 
